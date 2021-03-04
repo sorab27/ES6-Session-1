@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Third Question</title>
+  </head>
+
+  <body>
+    <div id="demo"></div>
+    <script>
+      const song = {
+        name: "Dying to live",
+        artist: "Tupac",
+        featuring: "Biggie Smalls",
+      };
+
+      let { name, artist, featuring } = song;
+
+      const final = `
+        <div class="song">
+            <p> ${name} - ${artist}
+                (Featuring ${featuring})
+            </p>
+        </div>
+      `;
+      console.log(final);
+      document.getElementById("demo").innerHTML = final;
+    </script>
+  </body>
+</html>
