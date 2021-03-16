@@ -36,11 +36,27 @@
     .map
 
     <script>
-      var list = Array.from(document.querySelectorAll("li"));
-      for (var i = 0; i < list.length; i++) {
-        list[i] = list[i].innerHTML;
-      }
+      const list = Array.from(document.querySelectorAll("[data-time]"));
       console.log(list);
+
+      const filtered = list.filter((item) =>
+        item.textContent.includes("Flexbox")
+      );
+      console.log(filtered);
+
+      const filt = filtered.map((item) => item.dataset.time);
+      console.log(filt);
+
+      const maps = filt.map((timecode) => {
+        const parts = timecode.split(":").map((part) => parseFloat(part));
+        return parts[0] * 60 + parts[1];
+      });
+      console.log(maps);
+
+      const maps2 = maps.reduce(
+        (runningTotal, seconds) => runningTotal + seconds
+      );
+      console.log(maps2);
     </script>
   </body>
 </html>
